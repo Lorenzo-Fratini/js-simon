@@ -1,6 +1,8 @@
 var quantity = 5;
-var userNums = [];
 var comNumbers = comNums();
+var userControl = []
+var userResult = [];
+
 
 function comNums(){
 
@@ -9,19 +11,28 @@ function comNums(){
 
 }
 
-function numRequest(){
+function gamePlay(){
 
-  for (i = 0; i < quantity; i++){
+  while (userControl.length < comNumbers.length ){
 
     var userNum = parseInt(prompt('Inserisci un numero che hai visualizzato precedentemente!'))
 
-    if(comNumbers.includes(userNum)){
-      userNums.push(userNum);
+    console.log(userNum);
+
+    if(userControl.includes(userNum)){
+      alert('Numero già inserito, inserisci un altro numero');
+    } else if (comNumbers.includes(userNum)){
+        userControl.push(userNum);
+        userResult.push(userNum);
+    } else if (!comNumbers.includes(userNum)){
+        userControl.push(userNum);
     }
   }
 
-  console.log('Hai indovinato ' + userNums.length + ' numeri');
-  console.log('Numeri indovinati: ' + userNums);
+  console.log(userControl, userResult);
+
+  console.log('Hai indovinato ' + userResult.length + ' numeri');
+  console.log('Numeri indovinati: ' + userResult);
 
 }
 
@@ -31,7 +42,7 @@ function init(){
 
   alert('Memorizza questi nuemri: ' + comNumbers);
 
-  setTimeout(numRequest, 1000);
+  setTimeout(gamePlay, 3000); //dovrebbe essere 30000ms
 
 }
 
