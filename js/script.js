@@ -42,7 +42,7 @@ function init(){
 
   alert('Memorizza questi nuemri: ' + comNumbers);
 
-  setTimeout(gamePlay, 3000);
+  setTimeout(gamePlay, 30000);
 
 }
 
