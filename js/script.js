@@ -1,5 +1,3 @@
-var comNumbers = comNums();
-
 function comNums(){
 
   var comNums = getRnds(1, 10, 5);
@@ -7,7 +5,7 @@ function comNums(){
 
 }
 
-function gamePlay(){
+function gamePlay(comNumbers){
 
   var userControl = [];
   var userResult = [];
@@ -40,9 +38,13 @@ function init(){
 
   // console.log('Numeri del computer: ' + comNumbers);
 
+  var comNumbers = comNums();
+
   alert('Memorizza questi nuemri: ' + comNumbers);
 
-  setTimeout(gamePlay, 30000);
+  setTimeout(function() {
+    gamePlay(comNumbers);
+  }, 30000);
 
 }
 
